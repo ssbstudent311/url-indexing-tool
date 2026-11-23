@@ -1,0 +1,1379 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <title>URL Indexing Tool — Google Indexer (Normal / Instant / Guaranteed)</title>
+    <meta name="description" content="Free URL Indexing Tool — submit any URL or backlink for fast Google indexing. Normal, Instant & Guaranteed modes with 7 discovery signals, Google Indexing API fast push, Search Console (GSC) URL Inspection status check and IndexNow support." />
+    <meta name="keywords" content="URL indexing tool, Google indexer, backlink indexer, fast indexing, Google Indexing API, GSC URL inspection, index URL in Google, backlink indexing tool, Instant indexing, IndexNow, URL submit to Google" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Bilal Ilyas" />
+    <link rel="canonical" href="https://ssbstudent311.github.io/url-indexing-tool/" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="URL Indexing Tool — Google Indexer (Normal / Instant / Guaranteed)" />
+    <meta property="og:description" content="Free URL Indexing Tool — submit any URL or backlink for fast Google indexing. Normal, Instant & Guaranteed modes, Google Indexing API push and GSC status check." />
+    <meta property="og:url" content="https://ssbstudent311.github.io/url-indexing-tool/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="URL Indexing Tool" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="URL Indexing Tool — Google Indexer (Normal / Instant / Guaranteed)" />
+    <meta name="twitter:description" content="Free URL Indexing Tool — submit any URL or backlink for fast Google indexing. Normal, Instant & Guaranteed modes, Google Indexing API push and GSC status check." />
+    <meta name="twitter:url" content="https://ssbstudent311.github.io/url-indexing-tool/" />
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+      button, [role="button"], select, summary, input:not([type="checkbox"], [type="radio"]), textarea, a.btn { min-height: 2.25rem; }
+      * { box-sizing: border-box; }
+      :root{
+        --bg:#070b16; --bg2:#0a0f1e; --panel:#0d1324; --panel2:#101830;
+        --line:#1d2745; --line2:#28335a;
+        --ink:#eef0f8; --body:#c3c9dc; --muted:#8b93ad;
+        --lime:#b9f22e; --lime-ink:#131a02; --lime-dim:#8fce1d;
+        --cyan:#39d5c0; --amber:#ffb224; --red:#ff6b6b; --green:#3ddc84;
+        --radius:14px;
+      }
+      html{ scroll-behavior:smooth; }
+      body{
+        margin:0; background:var(--bg); color:var(--body);
+        font-family:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+        font-size:16px; line-height:1.55;
+        background-image:radial-gradient(900px 480px at 50% -120px, rgba(185,242,46,.07), transparent 60%), radial-gradient(700px 500px at 85% 30%, rgba(57,213,192,.05), transparent 60%);
+        background-repeat:no-repeat;
+      }
+      .wrap{ max-width:1060px; margin:0 auto; padding:0 18px 72px; }
+      a{ color:var(--lime); }
+      :focus-visible{ outline:2px solid var(--lime); outline-offset:2px; border-radius:6px; }
+
+      /* ---------- Hero ---------- */
+      .hero{ text-align:center; padding:52px 0 8px; }
+      .pill{
+        display:inline-flex; align-items:center; gap:8px; padding:7px 16px;
+        border:1px solid rgba(185,242,46,.45); border-radius:999px;
+        font-family:"JetBrains Mono",monospace; font-size:11.5px; letter-spacing:.14em;
+        color:var(--lime); text-transform:uppercase; background:rgba(185,242,46,.05);
+      }
+      .pill .dot{ width:7px; height:7px; border-radius:50%; background:var(--lime); box-shadow:0 0 10px var(--lime); }
+      h1{
+        font-family:"Fraunces",Georgia,serif; font-weight:500; color:var(--ink);
+        font-size:clamp(2.3rem,6.2vw,4.3rem); line-height:1.06; margin:26px auto 0; max-width:820px;
+        letter-spacing:-.01em;
+      }
+      h1 .lime{ color:var(--lime); }
+      h1 .sub{
+        display:block; color:#7e8db1; font-size:.52em; line-height:1.25; margin-top:10px; font-weight:400;
+      }
+      .hero p.lede{ max-width:660px; margin:22px auto 0; font-size:1.06rem; color:var(--body); }
+      .hero p.lede strong{ color:var(--ink); }
+      .hero-links{ margin-top:14px; font-size:.92rem; color:var(--muted); }
+      .hero-links a{ margin:0 8px; display:inline-block; padding:6px 2px; }
+
+      /* ---------- Tool console ---------- */
+      .console{
+        margin-top:38px; background:linear-gradient(180deg,var(--panel2),var(--panel));
+        border:1px solid var(--line2); border-radius:20px; padding:22px;
+        text-align:left; box-shadow:0 30px 60px rgba(0,0,0,.45);
+      }
+      .console h2.block{ font-family:"Fraunces",serif; color:var(--ink); font-weight:600; font-size:1.25rem; margin:0 0 4px; }
+      .block-sub{ font-size:.9rem; color:var(--muted); margin:0 0 14px; }
+
+      /* speed modes */
+      .speed-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+      @media (max-width:760px){ .speed-grid{ grid-template-columns:1fr; } }
+      .speed-card{
+        text-align:left; border:1px solid var(--line2); background:var(--bg2); color:var(--body);
+        border-radius:16px; padding:16px 18px; cursor:pointer; font:inherit; width:100%;
+      }
+      .speed-card:hover{ border-color:var(--lime-dim); }
+      .speed-card[aria-pressed="true"]{ border-color:var(--lime); background:rgba(185,242,46,.06); box-shadow:0 0 0 1px var(--lime) inset; }
+      .speed-card .sname{ display:flex; align-items:center; justify-content:space-between; gap:8px; color:var(--ink); font-weight:800; font-size:1.05rem; }
+      .speed-card .stime{ font-family:"JetBrains Mono",monospace; font-size:.68rem; letter-spacing:.08em; padding:3px 9px; border-radius:99px; border:1px solid rgba(57,213,192,.5); color:var(--cyan); text-transform:uppercase; white-space:nowrap; }
+      .speed-card p{ margin:8px 0 0; font-size:.88rem; color:var(--muted); }
+      .mode-note{ font-size:.88rem; color:var(--muted); margin-top:12px; }
+      .mode-note b{ color:var(--ink); }
+
+      label.flabel{ display:block; font-weight:700; color:var(--ink); margin:20px 0 8px; font-size:.98rem; }
+      label.flabel span{ font-weight:500; color:var(--muted); font-size:.86rem; }
+      textarea, input[type="text"], input[type="url"]{
+        width:100%; background:#080d1a; border:1px solid var(--line2); border-radius:12px;
+        color:var(--ink); font:inherit; padding:12px 14px;
+      }
+      textarea{ min-height:150px; resize:vertical; font-family:"JetBrains Mono",monospace; font-size:.85rem; line-height:1.6; }
+      textarea::placeholder, input::placeholder{ color:#5b6582; }
+      .import-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; align-items:stretch; }
+      .import-row .grow{ flex:1 1 260px; display:flex; gap:10px; }
+      .btn{
+        display:inline-flex; align-items:center; justify-content:center; gap:8px;
+        border-radius:999px; border:1px solid var(--line2); background:var(--bg2); color:var(--ink);
+        font:inherit; font-weight:700; font-size:.93rem; padding:10px 18px; cursor:pointer; text-decoration:none;
+      }
+      .btn:hover{ border-color:var(--lime); }
+      .btn.primary{ background:var(--lime); border-color:var(--lime); color:var(--lime-ink); font-size:1rem; padding:12px 26px; box-shadow:0 8px 28px rgba(185,242,46,.25); }
+      .btn.primary:hover{ background:#c8ff3d; }
+      .btn:disabled{ opacity:.45; cursor:not-allowed; box-shadow:none; }
+      .btn.small{ padding:7px 13px; font-size:.85rem; min-height:2.25rem; }
+      .btn.danger{ color:var(--red); }
+      input[type="file"]{ display:none; }
+      .parse-msg{ margin-top:10px; font-size:.9rem; min-height:1.3em; }
+      .parse-msg.ok{ color:var(--green); } .parse-msg.warn{ color:var(--amber); } .parse-msg.err{ color:var(--red); }
+
+      .ownsite{ display:none; margin-top:18px; border:1px solid var(--line); border-radius:var(--radius); padding:4px 16px 16px; background:rgba(8,13,26,.5); }
+      .ownsite.show{ display:block; }
+      .honest-mini{ margin-top:14px; border:1px solid rgba(255,178,36,.4); background:rgba(255,178,36,.05); border-radius:12px; padding:12px 14px; font-size:.88rem; color:var(--body); }
+      .honest-mini b{ color:var(--amber); }
+      /* ---------- Hub Page Engine ---------- */
+      .hpanel{ margin-top:18px; border:1px solid rgba(185,242,46,.5); border-radius:16px; padding:18px; background:linear-gradient(180deg, rgba(185,242,46,.06), rgba(8,13,26,.55)); }
+      .hpanel h3.htitle{ margin:0; color:var(--ink); font-size:1.08rem; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+      .hpanel h3.htitle .htag{ font-family:"JetBrains Mono",monospace; font-size:.66rem; letter-spacing:.1em; padding:3px 9px; border-radius:99px; border:1px solid rgba(185,242,46,.55); color:var(--lime); text-transform:uppercase; }
+      .hpanel .hsub{ font-size:.9rem; color:var(--muted); margin:8px 0 0; }
+      .hpanel .hsub b{ color:var(--ink); }
+      .hub-steps{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-top:14px; }
+      @media (max-width:860px){ .hub-steps{ grid-template-columns:repeat(2,1fr); } }
+      @media (max-width:480px){ .hub-steps{ grid-template-columns:1fr; } }
+      .hub-step{ border:1px solid var(--line); border-radius:10px; padding:10px 12px; background:rgba(8,13,26,.55); font-size:.82rem; color:var(--muted); }
+      .hub-step b{ display:block; color:var(--lime); font-family:"JetBrains Mono",monospace; font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; margin-bottom:4px; }
+      .hub-step span b{ display:inline; color:var(--ink); font-family:inherit; font-size:inherit; letter-spacing:0; text-transform:none; }
+      .hub-status-line{ margin-top:12px; padding:10px 14px; border-radius:10px; font-size:.88rem; border:1px solid var(--line2); background:rgba(8,13,26,.55); color:var(--body); display:none; }
+      .hub-status-line.show{ display:block; }
+      .hub-status-line b{ color:var(--lime); }
+      .hub-line{ margin-top:7px; font-size:.8rem; color:var(--muted); }
+      .hub-line .badge{ font-size:.72rem; }
+      .b-hub-yes{ background:rgba(61,220,132,.15); color:var(--green); }
+      .b-hub-no{ background:#1a2340; color:#aebadd; }
+      .b-hub-warn{ background:rgba(255,178,36,.13); color:var(--amber); }
+      .key-grid{ display:grid; grid-template-columns:1fr; gap:14px; }
+      @media (max-width:640px){ .key-grid{ grid-template-columns:1fr; } }
+      .hint{ font-size:.85rem; color:var(--muted); margin-top:6px; }
+
+      .action-row{ display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; align-items:center; }
+      .progress{ flex:1 1 200px; height:10px; background:#080d1a; border:1px solid var(--line); border-radius:99px; overflow:hidden; display:none; }
+      .progress.show{ display:block; }
+      .progress i{ display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--lime-dim),var(--lime)); transition:width .3s; }
+
+      /* stats */
+      .stats{ display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; margin-top:26px; }
+      .stat{ background:var(--panel); padding:16px 10px; text-align:center; }
+      .stat b{ display:block; font-family:"Fraunces",serif; font-weight:600; font-size:1.9rem; color:var(--ink); line-height:1; }
+      .stat span{ display:block; margin-top:7px; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-family:"JetBrains Mono",monospace; }
+      @media (max-width:560px){ .stats{ grid-template-columns:repeat(2,1fr); } }
+
+      /* coverage */
+      .coverage{ margin-top:14px; border:1px solid var(--line); border-radius:var(--radius); background:var(--panel); padding:16px 18px; }
+      .coverage h3{ margin:0 0 4px; color:var(--ink); font-size:1rem; }
+      .coverage .cov-line{ font-size:.92rem; color:var(--muted); margin:0 0 10px; }
+      .coverage .cov-line b{ color:var(--cyan); }
+      .sigtable{ width:100%; border-collapse:collapse; font-size:.86rem; margin-top:4px; }
+      .sigtable td{ padding:6px 8px; border-bottom:1px solid var(--line); }
+      .sigtable td:last-child{ text-align:right; font-family:"JetBrains Mono",monospace; font-size:.78rem; color:var(--muted); }
+      .sigtable tr:last-child td{ border-bottom:none; }
+      .watch{ display:none; margin-top:12px; border:1px solid rgba(57,213,192,.4); background:rgba(57,213,192,.05); border-radius:var(--radius); padding:12px 16px; font-size:.9rem; }
+      .watch.show{ display:block; }
+      .watch b{ color:var(--cyan); }
+
+      /* queue */
+      .queue-head{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; margin-top:28px; }
+      .queue-head h2{ font-family:"Fraunces",serif; color:var(--ink); font-weight:600; font-size:1.45rem; margin:0; }
+      .queue-actions{ display:flex; gap:8px; flex-wrap:wrap; }
+      .empty{ border:1px dashed var(--line2); border-radius:var(--radius); padding:26px; text-align:center; color:var(--muted); margin-top:14px; }
+      table.queue{ width:100%; border-collapse:collapse; margin-top:14px; font-size:.92rem; }
+      table.queue th{ text-align:left; font-family:"JetBrains Mono",monospace; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); padding:10px 12px; border-bottom:1px solid var(--line2); }
+      table.queue td{ padding:11px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+      td.u{ font-family:"JetBrains Mono",monospace; font-size:.8rem; word-break:break-all; color:var(--ink); max-width:320px; }
+      td .host{ color:var(--muted); font-size:.78rem; }
+      td .modechip{ display:inline-block; margin-top:5px; font-family:"JetBrains Mono",monospace; font-size:.68rem; letter-spacing:.06em; padding:2px 8px; border-radius:99px; border:1px solid var(--line2); color:var(--muted); text-transform:uppercase; }
+      .badge{ display:inline-block; padding:3px 11px; border-radius:999px; font-size:.78rem; font-weight:700; white-space:nowrap; }
+      .b-queued{ background:#1a2340; color:#aebadd; }
+      .b-working{ background:rgba(255,178,36,.14); color:var(--amber); }
+      .b-pending{ background:rgba(255,178,36,.12); color:var(--amber); }
+      .b-crawled{ background:rgba(57,213,192,.13); color:var(--cyan); }
+      .b-notindexed{ background:rgba(255,159,107,.12); color:#ff9f6b; }
+      .b-fail{ background:rgba(255,107,107,.12); color:var(--red); }
+      td.detail{ color:var(--muted); font-size:.83rem; max-width:280px; }
+      .chips{ display:flex; flex-wrap:wrap; gap:4px; margin-top:7px; }
+      .chip{ font-family:"JetBrains Mono",monospace; font-size:.66rem; padding:2px 7px; border-radius:99px; border:1px solid var(--line2); color:var(--muted); }
+      .chip.c-ok{ border-color:rgba(61,220,132,.55); color:var(--green); }
+      .chip.c-sent{ border-color:rgba(57,213,192,.5); color:var(--cyan); }
+      .chip.c-fail{ border-color:rgba(255,107,107,.5); color:var(--red); }
+      .rowlinks{ display:flex; gap:6px; flex-wrap:wrap; }
+      .rowlinks a{ font-size:.8rem; font-weight:700; text-decoration:none; border:1px solid var(--line2); padding:5px 10px; border-radius:999px; display:inline-flex; align-items:center; min-height:2rem; color:var(--lime); }
+      .rowlinks a:hover{ border-color:var(--lime); }
+      .rowlinks button{ font-size:.8rem; font-weight:700; border:1px solid var(--line2); background:none; color:var(--ink); padding:5px 10px; border-radius:999px; cursor:pointer; min-height:2rem; }
+      .rowlinks button:hover{ border-color:var(--lime); }
+      .rowlinks button.del{ color:var(--red); }
+      @media (max-width:720px){
+        table.queue, table.queue tbody, table.queue tr, table.queue td{ display:block; width:100%; }
+        table.queue thead{ display:none; }
+        table.queue tr{ border:1px solid var(--line); border-radius:12px; margin-top:12px; padding:6px 4px; background:var(--panel); }
+        table.queue td{ border-bottom:none; padding:6px 12px; max-width:none !important; }
+      }
+
+      /* log */
+      .logbox{ margin-top:26px; background:#05080f; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+      .logbox header{ display:flex; justify-content:space-between; align-items:center; padding:10px 16px; border-bottom:1px solid var(--line); }
+      .logbox header b{ font-family:"JetBrains Mono",monospace; font-size:.78rem; letter-spacing:.1em; color:var(--ink); text-transform:uppercase; }
+      .logbox header span{ font-family:"JetBrains Mono",monospace; font-size:.72rem; color:var(--green); }
+      #log{ font-family:"JetBrains Mono",monospace; font-size:.78rem; line-height:1.75; padding:14px 16px; max-height:260px; overflow:auto; color:#9fb4d8; white-space:pre-wrap; word-break:break-word; }
+      #log .t{ color:#54627f; } #log .ok{ color:var(--green); } #log .bad{ color:var(--red); } #log .warn{ color:var(--amber); }
+
+      /* sections */
+      section{ margin-top:64px; }
+      .kicker{ text-align:center; font-family:"JetBrains Mono",monospace; font-size:.72rem; letter-spacing:.18em; color:var(--cyan); text-transform:uppercase; }
+      h2.sec{ font-family:"Fraunces",serif; font-weight:500; color:var(--ink); text-align:center; font-size:clamp(1.7rem,4.4vw,2.6rem); margin:14px auto 10px; max-width:720px; line-height:1.15; }
+      .sec-sub{ text-align:center; max-width:620px; margin:0 auto; color:var(--muted); }
+      .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:30px; }
+      @media (max-width:760px){ .steps{ grid-template-columns:1fr; } }
+      .card{ background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:22px; }
+      .card .num{ font-family:"Fraunces",serif; font-size:1.6rem; color:var(--lime); }
+      .card h3{ color:var(--ink); margin:8px 0 6px; font-size:1.08rem; }
+      .card p{ margin:0; font-size:.93rem; color:var(--muted); }
+      .signals{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:30px; }
+      @media (max-width:760px){ .signals{ grid-template-columns:1fr; } }
+      .sig h3{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+      .sig .tag{ font-family:"JetBrains Mono",monospace; font-size:.68rem; letter-spacing:.1em; padding:3px 9px; border-radius:99px; border:1px solid rgba(185,242,46,.5); color:var(--lime); text-transform:uppercase; }
+      .honest{ margin-top:30px; border:1px solid rgba(255,178,36,.4); background:rgba(255,178,36,.05); border-radius:16px; padding:20px 22px; }
+      .honest h3{ color:var(--amber); margin:0 0 6px; font-size:1.02rem; }
+      .honest p{ margin:0; font-size:.94rem; }
+      details{ background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:4px 18px; margin-top:12px; }
+      summary{ cursor:pointer; font-weight:700; color:var(--ink); padding:12px 0; }
+      details p{ margin:0 0 14px; color:var(--muted); font-size:.94rem; }
+      footer{ margin-top:64px; border-top:1px solid var(--line); padding-top:22px; text-align:center; color:var(--muted); font-size:.88rem; }
+      @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } *{ transition:none !important; } }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+
+      <!-- ================= HERO ================= -->
+      <div class="hero">
+        <span class="pill"><span class="dot"></span> Public version · Hub Page Engine ke sath</span>
+        <h1>Har URL ko <span class="lime">Googlebot</span> tak pohchao
+          <span class="sub">(URL &amp; Backlink Indexer — kisi bhi domain ke liye)</span>
+        </h1>
+        <p class="lede">Backlink ho ya apni site ka page — URL paste karo, mode chuno, aur tool <strong>7 strong discovery signals ek sath</strong> bhejta hai: Archive.org, archive.today, Ping-o-matic, WebSub, Twingly, Blo.gs aur IndexNow. <strong>Backlink ho to Hub Page Engine</strong> us ke liye tumhari apni site par hub page banata hai — asal title, description aur <strong>dofollow link</strong> ke sath — taake Googlebot hub se backlink wale page tak pohche. Status par jhoota “Indexed” kabhi nahi likha jata: evidence mile to sirf <strong>“Crawled — Google confirm nahi”</strong>.</p>
+        <div class="hero-links">
+          <a href="#tool">Tool kholo ↓</a>·<a href="#modes">Modes</a>·<a href="#hub-engine">Hub Engine</a>·<a href="#hub-guide">Hub Guide</a>·<a href="#kaise">Kaise kaam karta hai</a>·<a href="#faq">FAQ</a>
+        </div>
+      </div>
+
+      <!-- ================= TOOL ================= -->
+      <div class="console" id="tool">
+        <h2 class="block">1 · Speed mode chuno</h2>
+        <p class="block-sub">Teeno modes me signal set wahi strong wala hai — farq sirf raftaar aur re-check ka hai.</p>
+        <div class="speed-grid" role="group" aria-label="Speed mode chunein">
+          <button type="button" class="speed-card" id="spNormal" aria-pressed="false">
+            <span class="sname">Normal <span class="stime">~5–10 ghante</span></span>
+            <p>Saare signals ek ke baad ek, waqfay ke sath bheje jate hain. Aam tor par crawl kuch ghanton me ho jata hai — jaldi na ho to yahi kaafi hai.</p>
+          </button>
+          <button type="button" class="speed-card" id="spInstant" aria-pressed="true">
+            <span class="sname">Instant <span class="stime">Minutes</span></span>
+            <p>Submit karte hi saare signals ek sath, parallel chal jate hain. Sab se tez discovery — koi queue, koi intezar nahi.</p>
+          </button>
+          <button type="button" class="speed-card" id="spGuaranteed" aria-pressed="false">
+            <span class="sname">Guaranteed <span class="stime">7 din watch</span></span>
+            <p>Instant signals + 7 din tak auto re-check. Crawl evidence na mile to signals dobara bheje jate hain. Guarantee koshish aur check ki hai — index ka faisla Google ka hai.</p>
+          </button>
+        </div>
+        <p class="mode-note" id="modeNote"><b>Instant mode:</b> har URL par 7 signals foran parallel bheje jayenge.</p>
+
+        <h2 class="block" style="margin-top:26px;">2 · URLs add karo</h2>
+        <label class="flabel" for="urlInput" style="margin-top:6px;">URLs paste karein <span>— ek line me ek URL, zyada se zyada 200 · kisi bhi domain ka URL chalega, ownership proof nahi chahiye</span></label>
+        <textarea id="urlInput" placeholder="https://example.com/apka-backlink-page&#10;https://doosri-site.com/post/123&#10;https://apnisite.com/new-page/"></textarea>
+        <div class="import-row">
+          <button type="button" class="btn" id="fileBtn">CSV / TXT file se lo</button>
+          <input type="file" id="fileInput" accept=".csv,.txt,text/csv,text/plain" />
+          <div class="grow">
+            <input type="url" id="sitemapInput" placeholder="Sitemap URL — https://site.com/sitemap.xml" aria-label="Sitemap URL" />
+            <button type="button" class="btn" id="sitemapBtn">Sitemap import</button>
+          </div>
+        </div>
+        <p class="parse-msg" id="parseMsg" role="status"></p>
+
+        <div class="import-row" style="margin-top:4px;">
+          <button type="button" class="btn small" id="ownToggle" aria-expanded="false">Apni site hai? IndexNow options kholo</button>
+        </div>
+        <!-- Own-site extras -->
+        <div class="ownsite" id="ownSite">
+          <div class="key-grid">
+            <div>
+              <label class="flabel" for="inKey" style="margin-top:14px;">IndexNow API key <span>— sirf is session ke liye, save nahi hoti</span></label>
+              <input type="text" id="inKey" placeholder="e.g. 9f2c…64-char ya 32-char key" autocomplete="off" />
+              <p class="hint">Key file pehle apni site ke root me rakho: <b style="color:var(--ink)">{key}.txt</b> jisme sirf key likhi ho. Key lagi ho to IndexNow signal har mode me sath jayega (Bing / Yandex ko foran khabar). Neeche button se file download kar sakte ho.</p>
+            </div>
+          </div>
+          <div class="import-row">
+            <button type="button" class="btn small" id="keyFileBtn">Key file download</button>
+            <button type="button" class="btn small" id="payloadBtn">IndexNow payload (JSON)</button>
+          </div>
+          <p class="parse-msg" id="inMsg" role="status"></p>
+        </div>
+
+        <!-- ===== Hub Page Engine — random / backlink URLs ke liye ===== -->
+        <div class="hpanel" id="hub-engine">
+          <h3 class="htitle">Hub Page Engine — Backlink Indexing ka Tagra Setup <span class="htag">Random / backlink URLs ke liye</span></h3>
+          <p class="hsub">Random link (kisi aur ki site ka backlink) Google API se direct index <b>nahi</b> hota — us ka asal tareeqa hub page hai, aur ye engine wahi kaam auto karta hai. Har submitted URL ke liye tool <b>target page ka asal title aur description fetch karke</b> ek mukammal hub page banata hai: us backlink ka <b>dofollow link</b>, hub page ke apne <b>meta tags, canonical aur robots index,follow</b> ke sath. Phir hub page ko tumhari apni indexed site se Google tak push kiya jata hai — Googlebot hub page crawl karke usi dofollow link se backlink wale page tak pohchta hai.</p>
+
+          <label class="flabel" for="hubBase" style="margin-top:14px;">Tumhari site ka hub address (Hub Base URL) <span>— jahan hub files upload hongi, masalan https://apnisite.com/hub/</span></label>
+          <input type="text" id="hubBase" placeholder="https://apnisite.com/hub/" autocomplete="off" />
+          <p class="hint">Yehi address har hub page ka <b style="color:var(--ink)">canonical</b> banega aur RSS feed isi par base hogi. Base na likho to files ban jayengi lekin canonical me placeholder <b style="color:var(--ink)">https://apki-site.com/hub/</b> aayega — upload se pehle asal address likh kar hub dobara bana lena.</p>
+
+          <div class="hub-steps" aria-label="Hub page ka flow">
+            <div class="hub-step"><b>Step 1</b>Backlink URL submit karo — tool khud hub page banayega (asal title + description ke sath).</div>
+            <div class="hub-step"><b>Step 2</b>Hub page ki <span><b>.html file download</b></span> karo (har row me button hai, ya neeche se saari ek sath).</div>
+            <div class="hub-step"><b>Step 3</b>File ko apni site ke <span><b>/hub/ folder</b></span> me upload karo — <span><b>ye step lazmi hai, is ke baghair push nahi hoga.</b></span></div>
+            <div class="hub-step"><b>Step 4</b>Yahan <span><b>“Hub live check”</b></span> dabao — file live ho to Tier-2 signals (archive.today hub copy, Archive.org, WebSub, Ping-o-matic, Twingly, Blo.gs) hub URL par parallel jayenge.</div>
+            <div class="hub-step"><b>Step 5</b><span><b>Googlebot hub tak pohchta hai</b></span> — Tier-2 signals aur hub RSS feed crawlers ko hub page ki khabar dete hain; Googlebot hub crawl karke dofollow link se backlink tak jata hai.</div>
+          </div>
+
+          <div class="import-row" style="margin-top:14px;">
+            <button type="button" class="btn" id="hubBuildAllBtn" style="border-color:var(--lime);color:var(--lime);">Sab URLs ke hub pages banao</button>
+            <button type="button" class="btn" id="hubDownloadAllBtn">Saare hub files download karo</button>
+            <button type="button" class="btn" id="feedDownloadBtn">RSS feed download karo (feed.xml)</button>
+            <button type="button" class="btn" id="feedCopyBtn">Feed XML copy karo</button>
+          </div>
+          <div class="hub-status-line" id="hubStatusLine" role="status"></div>
+          <p class="parse-msg" id="hubMsg" role="status"></p>
+          <p class="hint">RSS feed ka naam <b style="color:var(--ink)">feed.xml</b> hai — isay bhi apni site ke <b style="color:var(--ink)">/hub/</b> folder me upload karna hai, taake is ka address <b style="color:var(--ink)">hub/feed.xml</b> bane (masalan https://apnisite.com/hub/feed.xml). Har naya hub page is feed me item ban kar shamil hota hai — crawlers aur WebSub isi feed se naye hub pages uthate hain. Tracking ke liye neeche queue ki har row me hub ka status live dikhta hai: <b style="color:var(--ink)">hub bana ya nahi · live hai ya nahi · Tier-2 signals gaye ya nahi</b>.</p>
+          <div class="honest-mini"><b>Saaf baat:</b> Hub file sirf tumhare computer me download hoti hai — jab tak tum usay apni site ke <b>/hub/</b> folder me upload nahi karte, wo internet par live nahi hoti aur koi push kaam nahi karega. Upload ke baad hi live check aur Tier-2 signals asal maano me chalenge. Aur index ka final faisla phir bhi Google ka hai — hub page us tak pohchne ka sab se mazboot rasta hai, guarantee nahi.</div>
+        </div>
+
+        <h2 class="block" style="margin-top:26px;">3 · Submit karo</h2>
+        <div class="action-row" style="margin-top:8px;">
+          <button type="button" class="btn primary" id="sendBtn">Signals bhejo — Instant</button>
+          <button type="button" class="btn" id="stopBtn" disabled>Roko</button>
+          <div class="progress" id="progress"><i id="progressBar"></i></div>
+        </div>
+        <p class="hint" style="margin-top:10px;">Ek run me pehle <b style="color:var(--ink)">50 URLs</b> process hote hain; baqi queue me rehte hain, dobara button dabane par agle chalte hain. IndexNow sirf tab jata hai jab upar key di ho aur URL tumhari apni site ka ho — doosri site ke URL par ye signal skip hota hai. <b style="color:var(--ink)">Har submitted URL ka hub page bhi sath auto ban jata hai</b> (Hub Page Engine, upar wala panel) — file download karke apni site ke <b style="color:var(--ink)">/hub/</b> folder me upload karna tumhara kaam hai, push us ke baad hota hai.</p>
+
+        <!-- stats -->
+        <div class="stats" aria-label="Session stats">
+          <div class="stat"><b id="stTotal">0</b><span>Total URLs</span></div>
+          <div class="stat"><b id="stPending">0</b><span>Pending</span></div>
+          <div class="stat"><b id="stCrawled">0</b><span>Crawled</span></div>
+          <div class="stat"><b id="stNot">0</b><span>Not indexed</span></div>
+          <div class="stat"><b id="stFail">0</b><span>Fail</span></div>
+        </div>
+
+        <!-- coverage report -->
+        <div class="coverage" id="coverage">
+          <h3>Coverage report</h3>
+          <p class="cov-line" id="covLine">Abhi koi URL submit nahi hua — submit ke baad yahan har signal ki coverage aur crawl evidence ka hisaab live banta jayega.</p>
+          <table class="sigtable" id="sigTable" style="display:none;"><tbody id="sigBody"></tbody></table>
+          <div class="watch" id="watchInfo"></div>
+        </div>
+
+        <!-- queue -->
+        <div class="queue-head">
+          <h2>Queue &amp; Live Status</h2>
+          <div class="queue-actions">
+            <button type="button" class="btn small" id="checkAllBtn">Sab ka status check karo</button>
+            <button type="button" class="btn small" id="copyBtn">URLs copy</button>
+            <button type="button" class="btn small" id="csvBtn">Report CSV</button>
+            <button type="button" class="btn small danger" id="clearBtn">Sab clear</button>
+          </div>
+        </div>
+        <div class="empty" id="emptyState">Abhi queue khaali hai. Upar mode chuno, URLs paste karo aur “Signals bhejo” dabao — har URL ka status yahin live banta jayega.<br /><span style="font-size:.85rem;">Note: ye public static version hai — page band karne par queue, history aur Guaranteed watch khatam ho jati hai. Record rakhna ho to Report CSV download kar lo.</span></div>
+        <table class="queue" id="queueTable" style="display:none;">
+          <thead><tr><th>URL</th><th>Status</th><th>Signals / Detail</th><th>Check / Action</th></tr></thead>
+          <tbody id="queueBody"></tbody>
+        </table>
+
+        <!-- log -->
+        <div class="logbox">
+          <header><b>Crawler Hub — Live Log</b><span>● session only</span></header>
+          <div id="log" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <!-- ================= MODES ================= -->
+      <section id="modes">
+        <p class="kicker">● Teen Modes</p>
+        <h2 class="sec">Raftaar tumhari marzi ki</h2>
+        <p class="sec-sub">Paid indexer wale hi teen modes — lekin yahan koi credit, koi payment nahi. Har mode me wahi 7 strong signals jate hain.</p>
+        <div class="steps">
+          <div class="card"><div class="num">N</div><h3>Normal — ~5–10 ghante</h3><p>Signals ek ke baad ek, waqfay ke sath. Services par bojh kam, aur aam tor par Googlebot kuch ghanton me page utha leta hai. Roz ke routine backlinks ke liye behtareen.</p></div>
+          <div class="card"><div class="num">I</div><h3>Instant — minutes</h3><p>Submit dabate hi Archive.org, archive.today, Ping-o-matic, WebSub, Twingly, Blo.gs — sab ek sath parallel. Discovery sab se jaldi shuru hoti hai; crawl phir bhi Googlebot ke schedule par hai.</p></div>
+          <div class="card"><div class="num">G</div><h3>Guaranteed — 7 din watch</h3><p>Instant blast ke baad tool 7 din tak har URL ko auto re-check karta rehta hai. Archive copy (crawl evidence) na mile to signals dobara bheje jate hain. Page khula rakhna parega — band kiya to watch wahin ruk jayegi.</p></div>
+        </div>
+      </section>
+
+      <!-- ================= HOW IT WORKS ================= -->
+      <section id="kaise">
+        <p class="kicker">● Fast URL Discovery</p>
+        <h2 class="sec">Teen steps — paste, signal, check</h2>
+        <p class="sec-sub">Google kisi page ko tab index karta hai jab pehle usay <b>crawl</b> kare. Crawl tab hota hai jab Googlebot ko URL ka pata chale. Ye tool wahi “pata chalana” wala kaam karta hai — 7 alag raston se, ek sath.</p>
+        <div class="steps">
+          <div class="card"><div class="num">1</div><h3>URLs add karo</h3><p>Ek URL ya poori list paste karo — backlinks, naye pages, CSV/TXT file ya sitemap import. Duplicates aur galat URLs tool khud alag kar deta hai.</p></div>
+          <div class="card"><div class="num">2</div><h3>7 signals jate hain</h3><p>Do archive services page ki public copy banati hain, chaar ping services update ki khabar har taraf phailati hain, aur apni site ho to IndexNow search engines ko foran batata hai.</p></div>
+          <div class="card"><div class="num">3</div><h3>Status live check karo</h3><p>Archive copy mil jaye to status <b>“Crawled — Google confirm nahi”</b> banta hai. Tool kabhi jhoota “Indexed” nahi likhta — Google index ki tasdeeq sirf “Google check” (site:) link se hoti hai.</p></div>
+        </div>
+
+        <div class="signals">
+          <div class="card sig"><h3>Archive.org Save <span class="tag">Signal 1</span></h3><p>Internet Archive ko page fetch karke save karne ki request jati hai. Public copy ban jana hi sab se mazboot crawl evidence hai — status “Crawled” isi copy ke milne par banta hai, andazay par nahi.</p></div>
+          <div class="card sig"><h3>archive.today Hub Copy <span class="tag">Signal 2</span></h3><p>Doosra bara archive network — page ki hub copy submit hoti hai. Do alag archive crawlers ka page fetch karna discovery ko dugna mazboot karta hai, aur copy baad me khud khol kar dekhi ja sakti hai.</p></div>
+          <div class="card sig"><h3>Ping-o-matic <span class="tag">Signal 3</span></h3><p>Update-service ping jo naye content ki khabar kai services tak pohchata hai. Browser is ka jawab parh nahi sakta, is liye log me ye hamesha “bheja gaya (unverified)” likha jata hai.</p></div>
+          <div class="card sig"><h3>WebSub (PubSubHubbub) <span class="tag">Signal 4</span></h3><p>Google ke apne hub ko publish ping jata hai — feed/update subscribers ko URL foran mil jata hai. Ye wahi protocol hai jo bade publishers naye content ke liye use karte hain.</p></div>
+          <div class="card sig"><h3>Twingly Ping <span class="tag">Signal 5</span></h3><p>Blog / content search network ko XML-RPC ping — URL unke crawl system me chala jata hai, jahan se doosre crawlers bhi uthate hain.</p></div>
+          <div class="card sig"><h3>Blo.gs Ping <span class="tag">Signal 6</span></h3><p>Sab se purani update ping service — weblog update ki khabar unke directory network tak. Chhota signal hai, lekin har extra rasta discovery ke chances barhata hai.</p></div>
+          <div class="card sig"><h3>IndexNow <span class="tag">Signal 7 · Apni site</span></h3><p>Apni site ke liye sab se seedha rasta: IndexNow Bing, Yandex waghera ko foran URL bata deta hai. Key file apni site par hona zaroori hai — tool key file aur payload dono bana deta hai, key sirf is session me rehti hai.</p></div>
+          <div class="card sig"><h3>Hub Page + RSS Feed <span class="tag">Backlink · Tier-2</span></h3><p>Random backlink ke liye tool tumhari site ke liye hub page banata hai — target ka asal title/description, dofollow link, canonical, robots index,follow. File <b>/hub/</b> folder me upload karne ke baad hub URL par wahi 6 Tier-2 signals (archive.today hub copy, Archive.org, WebSub, Ping-o-matic, Twingly, Blo.gs) parallel jate hain, aur har hub page <b>hub/feed.xml</b> RSS feed me shamil hota hai.</p></div>
+        </div>
+
+        <div class="honest">
+          <h3>Seedhi baat — “Indexed” ka jhoota dawa nahi</h3>
+          <p>Ye signals <b>discovery aur crawl</b> karwate hain — index karna ya na karna hamesha Google ka apna faisla hai, jo page ka content, quality aur site ki authority dekh kar hota hai. Is liye tool ke status sirf teen hain: <b>Pending</b> (signals gaye, crawl ka intezar), <b>Crawled — Google confirm nahi</b> (archive copy mil gayi, matlab crawler page fetch kar chuka hai) aur <b>Not indexed</b> (check par koi evidence nahi mila). Jo tool “2–5 minute me 100% index guarantee” ka dawa kare, wo dawa verify nahi hota — yahan har signal ka asal natija screen par dikhta hai.</p>
+        </div>
+      </section>
+
+      <!-- ================= HUB PAGE GUIDE ================= -->
+      <section id="hub-guide">
+        <p class="kicker">● Hub Page Engine — Backlinks Ke Liye</p>
+        <h2 class="sec">Backlink index karwana hai? Rasta hub page hai</h2>
+        <p class="sec-sub">Backlink kisi aur ki site par hota hai — wo tumhari apni site nahi hoti, is liye usay direct Google ko submit nahi kar sakte. RankLocal / MonkeyIndexer jesi services bhi asal me yahi karti hain: backlink ko apni kisi indexed site ke page (hub) se jod kar us hub ko Google tak push karti hain. Ye engine wahi setup <b>tumhari apni site</b> par banata hai.</p>
+        <div class="steps">
+          <div class="card"><div class="num">1</div><h3>Hub page auto banta hai</h3><p>Backlink submit karte hi tool target page ko fetch karke us ka <b>asal title aur description</b> nikaalta hai aur ek mukammal hub page banata hai — dofollow link, meta description, canonical aur <code style="font-family:'JetBrains Mono',monospace;font-size:.85em;">robots index,follow</code> ke sath. Fetch na ho sake (site browser ko rok de) to URL se bana hua title use hota hai aur row me saaf likha aata hai ke asal title nahi mila.</p></div>
+          <div class="card"><div class="num">2</div><h3>/hub/ folder me upload — lazmi step</h3><p>Hub page ki <b>.html file download</b> karke apni site ke <b>/hub/</b> folder me upload karo (WordPress ho to hosting ke File Manager / FTP se <code style="font-family:'JetBrains Mono',monospace;font-size:.85em;">public_html/hub/</code>). Sath me <b>feed.xml</b> bhi usi folder me rakho. <b>Upload se pehle hub page internet par exist hi nahi karta</b> — push us ke baad hota hai.</p></div>
+          <div class="card"><div class="num">3</div><h3>Push: signals + RSS</h3><p>File live ho jaye to queue ki row se <b>“Hub live check”</b> dabao — Tier-2 signals (archive.today hub copy, Archive.org, WebSub, Ping-o-matic, Twingly, Blo.gs) hub URL par parallel jate hain, aur <b>hub/feed.xml</b> RSS feed crawlers ko har naye hub page ki khabar deti rehti hai. Har backlink ka hub status — bana / live / signals gaye — usi ki row me track hota hai.</p></div>
+        </div>
+        <div class="honest">
+          <h3>Hub page kyun kaam karta hai</h3>
+          <p>Googlebot un pages ko pehle crawl karta hai jo kisi <b>pehle se indexed, trusted site</b> par hote hain. Tumhari site ka hub page jab signals aur RSS feed se Google tak pohchta hai, to Googlebot wahan se <b>dofollow link follow karke backlink wale page tak</b> jata hai — yahi discovery backlink ko index ke qabil banati hai. Isi liye hub wali site jitni purani aur indexed hogi, backlink utni jaldi utha jata hai. Final faisla phir bhi Google ka hai — backlink wale page ka content aur quality bhi matter karti hai.</p>
+        </div>
+      </section>
+
+      <!-- ================= FAQ ================= -->
+      <section id="faq">
+        <p class="kicker">● Sawal Jawab</p>
+        <h2 class="sec">Aksar pooche jane wale sawal</h2>
+        <div style="max-width:760px;margin:26px auto 0;">
+          <details><summary>Kya doosri site ka backlink bhi submit ho sakta hai?</summary><p>Haan — kisi bhi public URL ko GSC ke baghair submit kar sakte ho, kyunki archive aur ping signals ko ownership proof nahi chahiye. Sirf IndexNow apni site ke liye hai (key file chahiye hoti hai). Index ka faisla phir bhi Google karega, aur jis page par backlink hai us ki quality matter karti hai.</p></details>
+          <details><summary>Hub Page Engine kya hai aur backlink ke liye kyun zaroori hai?</summary><p>Random / backlink URL kisi aur ki site par hota hai — wo tumhari apni site nahi hoti, is liye usay direct Google ko submit nahi kar sakte. Hub Page Engine us backlink ke liye tumhari apni site par ek page banata hai jisme backlink ka dofollow link hota hai. Us hub page ko signals aur RSS se Googlebot tak pohchaya jata hai, aur Googlebot hub se backlink tak pohchta hai. Paid indexer services bhi asal me yahi karti hain — farq ye hai ke wahan hub unki site par banta hai, yahan tumhari apni site par.</p></details>
+          <details><summary>Hub file upload kiye baghair push ho jayega?</summary><p>Nahi — aur ye sab se aam galti hai. Tool hub page ki .html file tumhare browser me banata hai; jab tak tum us file ko apni site ke <b>/hub/</b> folder me upload nahi karte, wo page internet par live hi nahi hota. Pehle upload karo, phir yahan “Hub live check” se confirm karo, phir Tier-2 signals chalao — push tabhi asal hoga. RSS feed (feed.xml) bhi usi /hub/ folder me upload karni hai.</p></details>
+          <details><summary>Hub page me target ka asal title/description kaise aata hai?</summary><p>Hub banate waqt tool target page ko browser se fetch karke us ka &lt;title&gt; aur meta description parhta hai aur wahi hub page ke title, heading aur description me lagata hai. Kuch sites browser fetch ko rok deti hain (CORS) — tab tool public proxy se try karta hai, aur phir bhi na mile to URL se bana hua title use hota hai; queue ki row me saaf likha hota hai ke asal title mila ya fallback use hua.</p></details>
+          <details><summary>Normal, Instant aur Guaranteed me asal farq kya hai?</summary><p>Signals teeno me wahi 7 hain. Normal me wo ek ke baad ek waqfay se jate hain (~5–10 ghante me crawl aam hai). Instant me submit karte hi sab parallel chal jate hain. Guaranteed me Instant ke baad 7 din tak auto re-check chalta hai — evidence na mile to signals dobara bheje jate hain.</p></details>
+          <details><summary>“Crawled — Google confirm nahi” ka matlab kya hai?</summary><p>Matlab archive service ne page fetch karke us ki copy bana li hai — kisi crawler ne page parh liya hai, ye sabit hai. Lekin Google ke index me page aaya ya nahi, ye browser tool confirm nahi kar sakta. Har URL ke “Google check” link se site: search karke khud tasdeeq karo.</p></details>
+          <details><summary>Guaranteed mode ke liye page khula rakhna kyun parega?</summary><p>Ye public static tool hai — koi server peeche nahi chal raha jo tumhare liye check karta rahe. Auto re-check isi khuli hui tab me chalta hai (har 10 minute baad). Page band kar diya to watch khatam; dobara khol kar URL phir submit karna parega. Isi liye “Guaranteed” ki guarantee koshish aur re-check ki hai, index ki nahi.</p></details>
+          <details><summary>Kitni dair me index hoga?</summary><p>Koi fix time nahi. Crawl kabhi minutes-ghanton me, kabhi dinon me hota hai, aur kuch URLs index hi nahi hote (patla content, noindex, robots block). Instant mode discovery foran shuru kar deta hai — us ke baad waqt Googlebot ka hai.</p></details>
+          <details><summary>Page 404 / noindex ho to kya hoga?</summary><p>Signals chale bhi jayen to Google aise page ko index nahi karega. Pehle ye check karo: page live hai (200 status), meta robots me noindex nahi, aur robots.txt crawl block nahi kar raha.</p></details>
+          <details><summary>Ye data kahan save hota hai?</summary><p>Kahin nahi. Queue, status aur IndexNow key sirf is khuli hui tab me rehte hain, page band karte hi khatam. Apna record rakhna ho to “Report CSV” download kar lo — us me har URL ka mode, status aur har signal ka natija hota hai.</p></details>
+          <details><summary>Ek batch me kitne URLs bhej sakta hoon?</summary><p>List me 200 tak URLs add ho jate hain; signals ek run me pehle 50 par jate hain (services par bojh na pare). Baqi queue me rehte hain — dobara button dabane par agle 50 chalte hain.</p></details>
+        </div>
+      </section>
+
+      <footer>
+        URL Indexing Tool — Public static version · Signals: Archive.org · archive.today · Ping-o-matic · WebSub · Twingly · Blo.gs · IndexNow · Hub Page Engine + hub/feed.xml RSS<br />
+        Indexing ka final faisla hamesha search engine ka hota hai.
+      </footer>
+    </div>
+
+    <script>
+      (function(){
+        "use strict";
+        var $ = function(id){ return document.getElementById(id); };
+        var urls = [];            // {url, host, mode, status, detail, signals:{}, submittedAt, lastCheck, checks, resends}
+        var seen = {};
+        var running = false, stopFlag = false, checking = false;
+        var speedMode = "instant";
+        var BATCH = 50, MAXURLS = 200;
+        var CYCLE = 10 * 60 * 1000;          // Guaranteed auto re-check: har 10 minute
+        var WATCH_MS = 7 * 24 * 3600 * 1000; // 7 din
+
+        var SIGS = [
+          ["archive", "Archive.org", "ARC"],
+          ["at", "archive.today", "A.TODAY"],
+          ["ping", "Ping-o-matic", "PING"],
+          ["websub", "WebSub", "WEBSUB"],
+          ["twingly", "Twingly", "TWINGLY"],
+          ["blogs", "Blo.gs", "BLO.GS"],
+          ["indexnow", "IndexNow", "INDEXNOW"]
+        ];
+        var MODE_NAMES = { normal: "Normal", instant: "Instant", guaranteed: "Guaranteed" };
+        var MODE_NOTES = {
+          normal: "<b>Normal mode:</b> har URL par 7 signals ek ke baad ek, waqfay ke sath jayenge — aam tor par crawl 5–10 ghanton me ho jata hai.",
+          instant: "<b>Instant mode:</b> har URL par 7 signals foran parallel bheje jayenge — submit karte hi discovery shuru.",
+          guaranteed: "<b>Guaranteed mode:</b> Instant blast + 7 din tak har 10 minute auto re-check. Evidence na mile to signals dobara jayenge. Page khula rakho — band kiya to watch ruk jayegi."
+        };
+
+        /* ---------- log ---------- */
+        function ts(){ var d=new Date(); function p(n){return (n<10?"0":"")+n;} return p(d.getHours())+":"+p(d.getMinutes())+":"+p(d.getSeconds()); }
+        function log(msg, cls){
+          var el = $("log");
+          var line = document.createElement("div");
+          var t = document.createElement("span"); t.className="t"; t.textContent="["+ts()+"] ";
+          var s = document.createElement("span"); if(cls) s.className=cls; s.textContent=msg;
+          line.appendChild(t); line.appendChild(s); el.appendChild(line);
+          el.scrollTop = el.scrollHeight;
+        }
+        log("Tool ready hai. Mode chuno, URLs paste karo aur signals bhejo.", "ok");
+
+        /* ---------- speed mode ---------- */
+        function setSpeed(m){
+          speedMode = m;
+          $("spNormal").setAttribute("aria-pressed", m==="normal" ? "true":"false");
+          $("spInstant").setAttribute("aria-pressed", m==="instant" ? "true":"false");
+          $("spGuaranteed").setAttribute("aria-pressed", m==="guaranteed" ? "true":"false");
+          $("modeNote").innerHTML = MODE_NOTES[m];
+          $("sendBtn").textContent = "Signals bhejo — " + MODE_NAMES[m];
+        }
+        $("spNormal").addEventListener("click", function(){ setSpeed("normal"); });
+        $("spInstant").addEventListener("click", function(){ setSpeed("instant"); });
+        $("spGuaranteed").addEventListener("click", function(){ setSpeed("guaranteed"); });
+
+        /* ---------- own-site panel ---------- */
+        $("ownToggle").addEventListener("click", function(){
+          var open = $("ownSite").className.indexOf("show") !== -1;
+          $("ownSite").className = "ownsite" + (open ? "" : " show");
+          this.setAttribute("aria-expanded", open ? "false" : "true");
+          this.textContent = open ? "Apni site hai? IndexNow options kholo" : "IndexNow options band karo";
+        });
+
+        /* ---------- parsing ---------- */
+        function extractUrls(text){
+          var found = [], m, re = /https?:\/\/[^\s"'<>,]+/gi;
+          while((m = re.exec(text)) !== null){ found.push(m[0].replace(/[)\].]+$/,"")); }
+          if(!found.length){
+            text.split(/\r?\n/).forEach(function(line){
+              line = line.trim(); if(!line) return;
+              var first = line.split(/[,\t;]/)[0].trim();
+              if(first) found.push(first.indexOf("://") === -1 ? "https://" + first : first);
+            });
+          }
+          return found;
+        }
+        function addUrls(list, source){
+          var added = 0, dup = 0, bad = 0;
+          list.forEach(function(raw){
+            if(urls.length >= MAXURLS){ bad++; return; }
+            var u;
+            try { u = new URL(raw); if(u.protocol !== "http:" && u.protocol !== "https:") throw 0; }
+            catch(e){ bad++; return; }
+            var clean = u.href;
+            if(seen[clean]){ dup++; return; }
+            seen[clean] = true;
+            urls.push({ url: clean, host: u.hostname, mode: null, status: "queued", detail: "—", signals: {}, submittedAt: 0, lastCheck: 0, checks: 0, resends: 0, watchDone: false, hub: null });
+            added++;
+          });
+          var msg = $("parseMsg");
+          if(added){ msg.className = "parse-msg ok"; msg.textContent = "✓ " + added + " URLs queue me add ho gaye (" + source + ")" + (dup ? " · " + dup + " duplicate chor diye" : "") + (bad ? " · " + bad + " galat/extra reject" : ""); }
+          else { msg.className = "parse-msg warn"; msg.textContent = "Koi naya URL add nahi hua" + (dup ? " — " + dup + " pehle se queue me hain" : "") + (bad ? " — " + bad + " valid URL nahi lage" : ""); }
+          if(added) log(added + " URLs add hue (" + source + "). Queue total: " + urls.length, "ok");
+          renderQueue();
+          return added;
+        }
+        function parseTextarea(){
+          var v = $("urlInput").value.trim();
+          if(!v){ var m=$("parseMsg"); m.className="parse-msg warn"; m.textContent="Pehle box me kam az kam ek URL paste karo."; return 0; }
+          return addUrls(extractUrls(v), "paste");
+        }
+        $("urlInput").addEventListener("blur", function(){ if($("urlInput").value.trim()) parseTextarea(); });
+
+        /* ---------- file import ---------- */
+        $("fileBtn").addEventListener("click", function(){ $("fileInput").click(); });
+        $("fileInput").addEventListener("change", function(){
+          var f = this.files && this.files[0]; if(!f) return;
+          var r = new FileReader();
+          r.onload = function(){ addUrls(extractUrls(String(r.result || "")), "file: " + f.name); };
+          r.onerror = function(){ var m=$("parseMsg"); m.className="parse-msg err"; m.textContent="File parhi nahi gayi — dobara try karo."; };
+          r.readAsText(f); this.value = "";
+        });
+
+        /* ---------- sitemap import ---------- */
+        function parseSitemap(xml){
+          var out = [], m, re = /<loc>\s*([^<\s]+)\s*<\/loc>/gi;
+          while((m = re.exec(xml)) !== null) out.push(m[1]);
+          return out;
+        }
+        $("sitemapBtn").addEventListener("click", function(){
+          var su = $("sitemapInput").value.trim();
+          var msg = $("parseMsg");
+          if(!su){ msg.className="parse-msg warn"; msg.textContent="Pehle sitemap ka URL likho."; return; }
+          msg.className="parse-msg"; msg.textContent="Sitemap parha ja raha hai…";
+          log("Sitemap fetch: " + su);
+          function handle(xml, via){
+            var list = parseSitemap(xml);
+            if(!list.length){ msg.className="parse-msg err"; msg.textContent="Sitemap mila lekin us me <loc> URLs nahi mile."; log("Sitemap me URLs nahi mile.", "bad"); return; }
+            if(list.length && /\.xml/i.test(list[0]) && list.length <= 60 && list.every(function(x){return /\.xml($|\?)/i.test(x);})){
+              msg.textContent="Ye sitemap index hai — pehle child sitemap ke URLs liye ja rahe hain…";
+              var first = list.slice(0,5), all = [], done = 0;
+              first.forEach(function(child){
+                fetchText(child).then(function(x){ all = all.concat(parseSitemap(x)); }).catch(function(){}).then(function(){
+                  if(++done === first.length){ if(all.length) addUrls(all, "sitemap index"); else { msg.className="parse-msg err"; msg.textContent="Child sitemaps se URLs nahi nikle (browser CORS rok sakta hai). Sitemap khol kar URLs copy-paste kar do."; } }
+                });
+              });
+              return;
+            }
+            addUrls(list, "sitemap" + (via ? " ("+via+")" : ""));
+          }
+          function fetchText(u){
+            return fetch(u).then(function(r){ if(!r.ok) throw new Error("http "+r.status); return r.text(); });
+          }
+          fetchText(su).then(function(xml){ handle(xml, ""); }).catch(function(){
+            msg.className="parse-msg err"; msg.textContent="Sitemap browser se fetch nahi ho saka (aksar CORS rokta hai). Sitemap browser me khol kar URLs copy-paste kar do — wahi result milega.";
+            log("Sitemap fetch fail: " + su, "bad");
+          });
+        });
+
+        /* ---------- signals ---------- */
+        function sleep(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+        function pingXml(item){
+          return '<?xml version="1.0"?><methodCall><methodName>weblogUpdates.ping</methodName><params>' +
+            '<param><value><string>' + item.host + '</string></value></param>' +
+            '<param><value><string>' + item.url + '</string></value></param></params></methodCall>';
+        }
+        function noCors(url, opts){
+          opts = opts || {}; opts.mode = "no-cors";
+          return fetch(url, opts).then(function(){ return { state: "sent" }; }).catch(function(){ return { state: "fail" }; });
+        }
+        function archiveSignal(item){
+          var target = "https://web.archive.org/save/" + item.url;
+          return fetch(target, { method: "GET", redirect: "follow" }).then(function(r){
+            return { state: r.ok ? "verified" : "fail", code: r.status };
+          }).catch(function(){
+            return fetch(target, { method: "GET", mode: "no-cors" }).then(function(){
+              return { state: "sent", code: 0 };
+            }).catch(function(){ return { state: "fail", code: 0 }; });
+          });
+        }
+        function archiveTodaySignal(item){
+          return noCors("https://archive.ph/submit/?url=" + encodeURIComponent(item.url), { method: "GET" });
+        }
+        function pingomaticSignal(item){
+          return noCors("https://rpc.pingomatic.com/", { method: "POST", headers: { "Content-Type": "text/xml" }, body: pingXml(item) });
+        }
+        function websubSignal(item){
+          return noCors("https://pubsubhubbub.appspot.com/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: "hub.mode=publish&hub.url=" + encodeURIComponent(item.url) });
+        }
+        function twinglySignal(item){
+          return noCors("https://ping.twingly.com/ping", { method: "POST", headers: { "Content-Type": "text/xml" }, body: pingXml(item) });
+        }
+        function blogsSignal(item){
+          return noCors("https://ping.blo.gs/", { method: "POST", headers: { "Content-Type": "text/xml" }, body: pingXml(item) });
+        }
+        var SIGNAL_FNS = [
+          ["archive", archiveSignal], ["at", archiveTodaySignal], ["ping", pingomaticSignal],
+          ["websub", websubSignal], ["twingly", twinglySignal], ["blogs", blogsSignal]
+        ];
+        function sigName(key){ for(var i=0;i<SIGS.length;i++) if(SIGS[i][0]===key) return SIGS[i][1]; return key; }
+        function runSignals(item){
+          var parallel = item.mode !== "normal";
+          function one(pair){
+            return pair[1](item).then(function(r){
+              item.signals[pair[0]] = r.state;
+              if(r.state === "verified") log(sigName(pair[0]) + " verified — HTTP " + (r.code || 200) + ": " + item.url, "ok");
+              else if(r.state === "sent") log(sigName(pair[0]) + " bheja gaya (jawab unverified): " + item.url);
+              else log(sigName(pair[0]) + " fail: " + item.url, "bad");
+              renderQueue();
+              return r;
+            });
+          }
+          if(parallel) return Promise.all(SIGNAL_FNS.map(one));
+          var chain = Promise.resolve();
+          SIGNAL_FNS.forEach(function(pair){
+            chain = chain.then(function(){ return one(pair).then(function(){ return sleep(650); }); });
+          });
+          return chain;
+        }
+
+        /* ---------- crawl evidence check ---------- */
+        function fmtStamp(stamp){
+          if(!stamp || stamp.length < 8) return stamp || "";
+          return stamp.slice(6,8) + "-" + stamp.slice(4,6) + "-" + stamp.slice(0,4);
+        }
+        function checkEvidence(item){
+          var api = "https://archive.org/wayback/available?url=" + encodeURIComponent(item.url);
+          return fetch(api).then(function(r){ return r.json(); }).then(function(j){
+            var snap = j && j.archived_snapshots && j.archived_snapshots.closest;
+            if(snap && snap.available) return { found: true, when: fmtStamp(snap.timestamp) };
+            return { found: false };
+          }).catch(function(){ return { found: false, error: true }; });
+        }
+        function applyEvidence(item, ev){
+          item.lastCheck = Date.now(); item.checks++;
+          if(ev.found){
+            item.status = "crawled";
+            item.detail = "Archive.org copy mili (" + ev.when + ") — crawler page fetch kar chuka hai. Google index abhi tasdeeq nahi — “Google check” link se site: tasdeeq karo.";
+            return true;
+          }
+          return false;
+        }
+
+        /* ---------- IndexNow batch (own site only) ---------- */
+        function indexNowBatch(items){
+          var key = $("inKey").value.trim();
+          if(!key){ items.forEach(function(it){ it.signals.indexnow = "skip"; }); return Promise.resolve(); }
+          var byHost = {};
+          items.forEach(function(it){ (byHost[it.host] = byHost[it.host] || []).push(it); });
+          var jobs = Object.keys(byHost).map(function(host){
+            var list = byHost[host];
+            var payload = { host: host, key: key, keyLocation: "https://" + host + "/" + key + ".txt", urlList: list.map(function(x){ return x.url; }).slice(0, 10000) };
+            return fetch("https://api.indexnow.org/indexnow", { method: "POST", headers: { "Content-Type": "application/json; charset=utf-8" }, body: JSON.stringify(payload) })
+              .then(function(r){
+                var ok = (r.status === 200 || r.status === 202);
+                list.forEach(function(it){ it.signals.indexnow = ok ? "verified" : "fail"; });
+                log("IndexNow (" + host + "): HTTP " + r.status + " — " + list.length + " URLs", ok ? "ok" : "bad");
+              })
+              .catch(function(){
+                list.forEach(function(it){ it.signals.indexnow = "fail"; });
+                log("IndexNow (" + host + ") browser se fail — key file site par lagi hai ya nahi, check karo.", "bad");
+              });
+          });
+          return Promise.all(jobs);
+        }
+
+        /* ---------- processing ---------- */
+        function processItem(item){
+          item.status = "working"; item.detail = "Signals bheje ja rahe hain (" + MODE_NAMES[item.mode] + ")…"; renderQueue();
+          return runSignals(item).then(function(){
+            return checkEvidence(item).then(function(ev){
+              if(!applyEvidence(item, ev)){
+                var sent = 0, fail = 0;
+                SIGS.forEach(function(s){ var st = item.signals[s[0]]; if(st === "verified" || st === "sent") sent++; else if(st === "fail") fail++; });
+                if(sent > 0){
+                  item.status = "pending";
+                  item.detail = sent + " signals gaye — crawl ka intezar hai. Archive copy bante hi status “Crawled” ho jayega; “Status check” se kabhi bhi dobara dekho.";
+                } else {
+                  item.status = "fail";
+                  item.detail = "Saare signals fail — net connection ya services ki taraf se rok. Thodi dair baad dobara try karo.";
+                }
+              }
+              renderQueue();
+              return createHubPage(item, true).then(function(){
+                renderQueue();
+                if(item.mode === "normal") return sleep(900);
+              });
+            });
+          });
+        }
+        function processBatch(items){
+          var conc = speedMode === "normal" ? 1 : 3;
+          var idx = 0, doneCount = 0;
+          function worker(){
+            if(stopFlag || idx >= items.length) return Promise.resolve();
+            var item = items[idx++];
+            return processItem(item).then(function(){
+              doneCount++;
+              $("progressBar").style.width = Math.round(doneCount / items.length * 100) + "%";
+              return worker();
+            });
+          }
+          var workers = [];
+          for(var i = 0; i < conc; i++) workers.push(worker());
+          return Promise.all(workers).then(function(){ return doneCount; });
+        }
+        $("sendBtn").addEventListener("click", function(){
+          if(running) return;
+          parseTextarea();
+          var pending = urls.filter(function(x){ return x.status === "queued"; }).slice(0, BATCH);
+          if(!pending.length){ var m=$("parseMsg"); m.className="parse-msg warn"; m.textContent="Queue me bhejne ke liye koi naya URL nahi. Pehle URLs add karo."; return; }
+          running = true; stopFlag = false;
+          $("sendBtn").disabled = true; $("stopBtn").disabled = false;
+          $("progress").className = "progress show"; $("progressBar").style.width = "0%";
+          pending.forEach(function(it){ it.mode = speedMode; it.submittedAt = Date.now(); });
+          log("Batch shuru — " + pending.length + " URLs, mode: " + MODE_NAMES[speedMode] + (speedMode === "instant" ? " (saare signals parallel)" : speedMode === "guaranteed" ? " (parallel + 7 din auto re-check)" : " (signals ek ke baad ek)"), "ok");
+          indexNowBatch(pending).then(function(){
+            renderQueue();
+            return processBatch(pending);
+          }).then(function(doneCount){
+            running = false; $("sendBtn").disabled = false; $("stopBtn").disabled = true;
+            $("progressBar").style.width = "100%";
+            log(stopFlag ? "Batch roka gaya. " + doneCount + "/" + pending.length + " process hue." : "Batch mukammal — " + doneCount + " URLs process hue. Status “Crawled” archive evidence par banta hai; Google index ki tasdeeq site: check se karo.", stopFlag ? "warn" : "ok");
+            setTimeout(function(){ $("progress").className = "progress"; $("progressBar").style.width = "0%"; }, 900);
+            renderQueue(); ensureWatch();
+          });
+        });
+        $("stopBtn").addEventListener("click", function(){ stopFlag = true; });
+
+        /* ---------- manual status check ---------- */
+        function checkOne(item){
+          return checkEvidence(item).then(function(ev){
+            if(ev.error){ log("Status check fail (network): " + item.url, "warn"); return; }
+            if(applyEvidence(item, ev)) log("Crawled evidence mila: " + item.url, "ok");
+            else {
+              if(item.status === "pending"){ item.status = "notindexed"; }
+              if(item.status === "notindexed") item.detail = "Check #" + item.checks + ": abhi tak koi archive copy nahi mili — Google index bhi tasdeeq nahi. Kuch ghante baad dobara check karo, ya signals dobara bhejo.";
+              log("Koi crawl evidence nahi mila: " + item.url, "warn");
+            }
+            renderQueue();
+          });
+        }
+        $("checkAllBtn").addEventListener("click", function(){
+          if(checking || running) return;
+          var targets = urls.filter(function(x){ return x.status === "pending" || x.status === "notindexed"; });
+          if(!targets.length){ log("Check karne ke liye koi Pending / Not indexed URL nahi.", "warn"); return; }
+          checking = true; log("Status check shuru — " + targets.length + " URLs ki archive evidence dekhi ja rahi hai…");
+          var chain = Promise.resolve();
+          targets.forEach(function(it){ chain = chain.then(function(){ return checkOne(it).then(function(){ return sleep(250); }); }); });
+          chain.then(function(){ checking = false; log("Status check mukammal.", "ok"); renderQueue(); ensureWatch(); });
+        });
+
+        /* ---------- Guaranteed auto re-check watch ---------- */
+        var watchTimer = null, nextCheckAt = 0;
+        function watchTargets(){
+          var now = Date.now();
+          return urls.filter(function(x){
+            return x.mode === "guaranteed" && !x.watchDone && (x.status === "pending" || x.status === "notindexed") && (now - x.submittedAt) < WATCH_MS;
+          });
+        }
+        function ensureWatch(){
+          var has = watchTargets().length > 0;
+          if(has && !watchTimer){
+            nextCheckAt = Date.now() + CYCLE;
+            watchTimer = setInterval(watchTick, 1000);
+            log("Guaranteed watch on — har 10 minute auto re-check hoga, 7 din tak. Page khula rakho.", "ok");
+          }
+          if(!has && watchTimer){ clearInterval(watchTimer); watchTimer = null; }
+          renderWatch();
+        }
+        function watchTick(){
+          var now = Date.now();
+          urls.forEach(function(x){
+            if(x.mode === "guaranteed" && !x.watchDone && x.submittedAt && (now - x.submittedAt) >= WATCH_MS && (x.status === "pending" || x.status === "notindexed")){
+              x.watchDone = true;
+              x.detail = "7 din poore — final check par bhi crawl evidence nahi mila. Signals dobara bhejna ho to URL phir submit karo.";
+              log("Guaranteed deadline poora (7 din): " + x.url, "warn");
+            }
+          });
+          renderWatch();
+          if(now >= nextCheckAt && !checking && !running){
+            nextCheckAt = now + CYCLE;
+            runAutoCheck();
+          }
+          if(!watchTargets().length && watchTimer){ clearInterval(watchTimer); watchTimer = null; renderWatch(); }
+        }
+        function runAutoCheck(){
+          var targets = watchTargets();
+          if(!targets.length) return;
+          checking = true;
+          log("Auto re-check — " + targets.length + " Guaranteed URLs…");
+          var chain = Promise.resolve();
+          targets.forEach(function(it){
+            chain = chain.then(function(){
+              return checkEvidence(it).then(function(ev){
+                it.lastCheck = Date.now(); it.checks++;
+                if(ev.found){ applyEvidence(it, ev); log("Auto-check: crawled evidence mila — " + it.url, "ok"); }
+                else {
+                  it.resends++;
+                  log("Auto-check: evidence nahi — signals dobara bheje ja rahe hain (" + it.resends + "vi baar): " + it.url, "warn");
+                  return runSignals(it);
+                }
+                renderQueue();
+                return sleep(250);
+              });
+            });
+          });
+          chain.then(function(){ checking = false; renderQueue(); });
+        }
+        function renderWatch(){
+          var el = $("watchInfo");
+          var targets = watchTargets();
+          var anyG = urls.some(function(x){ return x.mode === "guaranteed" && x.submittedAt; });
+          if(!anyG){ el.className = "watch"; el.innerHTML = ""; return; }
+          el.className = "watch show";
+          if(!targets.length){
+            el.innerHTML = "<b>Guaranteed watch:</b> saare Guaranteed URLs ka status tay ho gaya hai (Crawled ya 7 din poore) — auto re-check band.";
+            return;
+          }
+          var deadline = 0;
+          targets.forEach(function(x){ var d = x.submittedAt + WATCH_MS; if(!deadline || d < deadline) deadline = d; });
+          var left = Math.max(0, nextCheckAt - Date.now());
+          var mm = Math.floor(left / 60000), ss = Math.floor((left % 60000) / 1000);
+          el.innerHTML = "<b>Guaranteed watch on:</b> " + targets.length + " URLs ki nigrani jaari hai · Agla auto re-check: <b>" + mm + ":" + (ss < 10 ? "0" : "") + ss + "</b> · Deadline: <b>" + new Date(deadline).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) + "</b> (submit ke 7 din) · Page khula rakho — band karne par watch ruk jayegi.";
+        }
+
+        /* ================= Hub Page Engine =================
+           Random / backlink URL ke liye: target ka asal title + description fetch karke
+           mukammal hub page (dofollow link, meta tags, canonical, robots index,follow) banta hai.
+           File user apni site ke /hub/ folder me upload karta hai — tabhi live hoti hai.
+           Hub live ho to Tier-2 signals hub URL par parallel jate hain,
+           aur har hub page hub/feed.xml RSS me shamil hota hai. */
+        function hubBaseUrl(){
+          var v = $("hubBase").value.trim();
+          if(!v) return "https://apki-site.com/hub/";
+          if(v.indexOf("://") === -1) v = "https://" + v;
+          if(v.slice(-1) !== "/") v += "/";
+          return v;
+        }
+        function hubSlug(item){
+          var base;
+          try {
+            var u = new URL(item.url);
+            base = (u.hostname.replace(/^www\./, "") + "-" + u.pathname.replace(/\/$/, "")).toLowerCase();
+          } catch(e){ base = item.host; }
+          base = base.replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 64).replace(/-+$/g, "");
+          if(!base) base = "backlink";
+          var n = 1, slug = base;
+          urls.forEach(function(x){ if(x !== item && x.hub && x.hub.file === slug + ".html"){ n++; slug = base + "-" + n; } });
+          return slug;
+        }
+        function fetchWithTimeout(u, ms){
+          return Promise.race([
+            fetch(u),
+            new Promise(function(_, rej){ setTimeout(function(){ rej(new Error("timeout")); }, ms || 12000); })
+          ]);
+        }
+        function parseMetaFromHtml(html, fallbackUrl){
+          var out = { title: "", desc: "" };
+          try {
+            var doc = new DOMParser().parseFromString(html, "text/html");
+            var t = doc.querySelector("title");
+            if(t) out.title = (t.textContent || "").trim().replace(/\s+/g, " ");
+            var d = doc.querySelector('meta[name="description"]') || doc.querySelector('meta[property="og:description"]');
+            if(d) out.desc = (d.getAttribute("content") || "").trim().replace(/\s+/g, " ");
+            if(!out.title){
+              var og = doc.querySelector('meta[property="og:title"]');
+              if(og) out.title = (og.getAttribute("content") || "").trim();
+            }
+            var h1 = doc.querySelector("h1");
+            if(!out.desc && h1) out.desc = "";
+          } catch(e){}
+          return out;
+        }
+        function fetchTargetMeta(item){
+          var attempts = [
+            item.url,
+            "https://api.allorigins.win/raw?url=" + encodeURIComponent(item.url),
+            "https://api.codetabs.com/v1/proxy/?quest=" + encodeURIComponent(item.url)
+          ];
+          var i = 0;
+          function next(){
+            if(i >= attempts.length) return Promise.resolve(null);
+            var a = attempts[i++];
+            return fetchWithTimeout(a, 12000).then(function(r){
+              if(!r.ok) throw new Error("http " + r.status);
+              return r.text();
+            }).then(function(html){
+              var meta = parseMetaFromHtml(html, item.url);
+              if(meta.title) return meta;
+              return next();
+            }).catch(function(){ return next(); });
+          }
+          return next();
+        }
+        function fallbackMeta(item){
+          var path = "";
+          try { path = new URL(item.url).pathname.replace(/\/$/, ""); } catch(e){}
+          var tail = path.split("/").filter(Boolean).pop() || item.host;
+          var title = tail.replace(/[-_]+/g, " ").replace(/\b\w/g, function(c){ return c.toUpperCase(); });
+          return { title: title + " — " + item.host, desc: "" };
+        }
+        function escHtml(s){
+          return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+        }
+        function buildHubHtml(item, meta){
+          var hub = item.hub;
+          var title = meta.title;
+          var desc = meta.desc || ("Is hub page par " + item.host + " ke is page ki tafseel aur us ka asal link diya gaya hai: " + title + ". Page par janay ke liye neeche wala link use karein.");
+          var hubTitle = title + " | Hub";
+          var nowIso = new Date(hub.createdAt).toISOString();
+          var dateStr = new Date(hub.createdAt).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+          return "<!doctype html>\n" +
+          '<html lang="en">\n<head>\n<meta charset="utf-8" />\n' +
+          '<meta name="viewport" content="width=device-width, initial-scale=1" />\n' +
+          "<title>" + escHtml(hubTitle) + "</title>\n" +
+          '<meta name="description" content="' + escHtml(desc) + '" />\n' +
+          '<meta name="robots" content="index, follow" />\n' +
+          '<link rel="canonical" href="' + escHtml(hub.url) + '" />\n' +
+          '<meta property="og:title" content="' + escHtml(hubTitle) + '" />\n' +
+          '<meta property="og:description" content="' + escHtml(desc) + '" />\n' +
+          '<meta property="og:url" content="' + escHtml(hub.url) + '" />\n' +
+          '<meta property="og:type" content="article" />\n' +
+          '<meta name="twitter:card" content="summary" />\n' +
+          '<meta name="twitter:title" content="' + escHtml(hubTitle) + '" />\n' +
+          '<meta name="twitter:description" content="' + escHtml(desc) + '" />\n' +
+          "</head>\n<body>\n<main>\n<article>\n" +
+          "<h1>" + escHtml(title) + "</h1>\n" +
+          '<p><time datetime="' + nowIso + '">' + dateStr + "</time></p>\n" +
+          "<p>" + escHtml(desc) + "</p>\n" +
+          '<p>Asal page yahan parha ja sakta hai: <a href="' + escHtml(item.url) + '">' + escHtml(title) + "</a></p>\n" +
+          "<p>Source: " + escHtml(item.url) + "</p>\n" +
+          "</article>\n</main>\n</body>\n</html>\n";
+        }
+        function createHubPage(item, auto){
+          if(item.hub && item.hub.html) return Promise.resolve(item.hub);
+          if(item.hubBusy) return Promise.resolve(null);
+          item.hubBusy = true;
+          log("Hub page ban raha hai — target ka asal title/description fetch ho raha hai: " + item.url);
+          return fetchTargetMeta(item).then(function(meta){
+            var fetched = !!meta;
+            if(!fetched) meta = fallbackMeta(item);
+            var slug = hubSlug(item);
+            item.hub = {
+              file: slug + ".html",
+              url: hubBaseUrl() + slug + ".html",
+              title: meta.title,
+              desc: meta.desc,
+              fetched: fetched,
+              createdAt: Date.now(),
+              html: "",
+              live: "unknown",       // unknown | yes | no
+              liveNote: "",
+              signalsSent: false,
+              signals: {}
+            };
+            item.hub.html = buildHubHtml(item, meta);
+            item.hubBusy = false;
+            log(fetched
+              ? "Hub page tayyar ✓ " + item.hub.file + " — asal title mila: “" + meta.title.slice(0, 70) + "” · Ab file download karke apni site ke /hub/ folder me upload karo."
+              : "Hub page tayyar ✓ " + item.hub.file + " — target fetch nahi ho saka (site ne browser ko roka), is liye URL se bana title use hua. File /hub/ folder me upload karo.", fetched ? "ok" : "warn");
+            renderHubPanel(); renderQueue();
+            return item.hub;
+          });
+        }
+        function buildFeedXml(){
+          var base = hubBaseUrl();
+          var items = urls.filter(function(x){ return x.hub && x.hub.html; });
+          var lines = [];
+          lines.push('<?xml version="1.0" encoding="UTF-8"?>');
+          lines.push('<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">');
+          lines.push("<channel>");
+          lines.push("<title>Hub Pages Feed</title>");
+          lines.push("<link>" + escHtml(base) + "</link>");
+          lines.push("<description>Hub pages feed — har hub page ek backlink target ko dofollow link ke sath list karta hai.</description>");
+          lines.push('<atom:link href="' + escHtml(base + "feed.xml") + '" rel="self" type="application/rss+xml" />');
+          lines.push("<lastBuildDate>" + new Date().toUTCString() + "</lastBuildDate>");
+          items.forEach(function(x){
+            var h = x.hub;
+            lines.push("<item>");
+            lines.push("<title>" + escHtml(h.title) + "</title>");
+            lines.push("<link>" + escHtml(h.url) + "</link>");
+            lines.push('<guid isPermaLink="true">' + escHtml(h.url) + "</guid>");
+            lines.push("<pubDate>" + new Date(h.createdAt).toUTCString() + "</pubDate>");
+            lines.push("<description>" + escHtml((h.desc ? h.desc + " — " : "") + "Asal page: " + x.url) + "</description>");
+            lines.push("</item>");
+          });
+          lines.push("</channel>");
+          lines.push("</rss>");
+          return lines.join("\n");
+        }
+        function renderHubPanel(){
+          var el = $("hubStatusLine");
+          var hubs = urls.filter(function(x){ return x.hub && x.hub.html; });
+          if(!hubs.length){ el.className = "hub-status-line"; el.innerHTML = ""; return; }
+          var live = hubs.filter(function(x){ return x.hub.live === "yes"; }).length;
+          var reach = hubs.filter(function(x){ return x.hub.live === "reachable"; }).length;
+          el.className = "hub-status-line show";
+          el.innerHTML = "<b>Hub status:</b> " + hubs.length + " hub pages bane · " + live + " live tasdeeq (HTTP 200)" + (reach ? " · " + reach + " sirf server tak pohch — live tasdeeq nahi" : "") + " · RSS feed me " + hubs.length + " items — feed ka address: <b>" + escHtml(hubBaseUrl() + "feed.xml") + "</b> (feed.xml bhi /hub/ folder me upload karni hai).";
+        }
+        $("hubBase").addEventListener("input", function(){
+          // Base badal jaye to hub ka URL badal jata hai — purane URL par earned live / signal
+          // status naye URL par NAHI chalega, is liye teeno reset karna lazmi hai.
+          var had = false;
+          urls.forEach(function(x){
+            if(x.hub){
+              had = true;
+              x.hub.url = hubBaseUrl() + x.hub.file;
+              x.hub.html = buildHubHtml(x, { title: x.hub.title, desc: x.hub.desc });
+              x.hub.live = "unknown"; x.hub.liveNote = "";
+              x.hub.signalsSent = false; x.hub.signals = {};
+            }
+          });
+          if(had) log("Hub Base badla — saare hubs ke naye URL ban gaye aur un ka live / Tier-2 signal status reset kar diya gaya. Naye address par dobara live check hoga.", "warn");
+          renderHubPanel(); renderQueue();
+        });
+        function hubMsg(text, cls){
+          var m = $("hubMsg"); m.className = "parse-msg " + (cls || ""); m.textContent = text;
+        }
+        $("hubBuildAllBtn").addEventListener("click", function(){
+          parseTextarea();
+          if(!urls.length){ hubMsg("Queue khaali hai — pehle upar URLs paste karo, phir hub pages banao.", "warn"); return; }
+          hubMsg("Hub pages ban rahe hain — har target ka asal title/description fetch ho raha hai, thoda waqt lagega…", "");
+          var chain = Promise.resolve();
+          urls.forEach(function(it){ chain = chain.then(function(){ return createHubPage(it, false); }); });
+          chain.then(function(){
+            var n = urls.filter(function(x){ return x.hub && x.hub.html; }).length;
+            hubMsg("✓ " + n + " hub pages tayyar hain. Ab har file download karke apni site ke /hub/ folder me upload karo — phir har row me live check aur Google push chalega.", "ok");
+            renderQueue();
+          });
+        });
+        $("hubDownloadAllBtn").addEventListener("click", function(){
+          var hubs = urls.filter(function(x){ return x.hub && x.hub.html; });
+          if(!hubs.length){ hubMsg("Pehle hub pages banao — abhi download ke liye koi hub file nahi.", "warn"); return; }
+          var i = 0;
+          hubs.forEach(function(x){
+            setTimeout(function(){ download(x.hub.file, x.hub.html, "text/html"); }, i * 450); i++;
+          });
+          log(hubs.length + " hub files download ho rahi hain — saari apni site ke /hub/ folder me upload karni hain.", "ok");
+          hubMsg(hubs.length + " hub files download ho rahi hain. Browser agar multiple downloads roke to har row ke “Hub file” button se alag alag download kar lo.", "ok");
+        });
+        $("feedDownloadBtn").addEventListener("click", function(){
+          var hubs = urls.filter(function(x){ return x.hub && x.hub.html; });
+          if(!hubs.length){ hubMsg("Feed tab bane gi jab kam az kam ek hub page bana ho — pehle hub pages banao.", "warn"); return; }
+          download("feed.xml", buildFeedXml(), "application/rss+xml");
+          log("RSS feed download hui: feed.xml (" + hubs.length + " hub items) — isay bhi /hub/ folder me upload karo, address hub/feed.xml bane ga.", "ok");
+          hubMsg("✓ feed.xml download ho gayi — isay bhi apni site ke /hub/ folder me upload karo.", "ok");
+        });
+        $("feedCopyBtn").addEventListener("click", function(){
+          var hubs = urls.filter(function(x){ return x.hub && x.hub.html; });
+          if(!hubs.length){ hubMsg("Pehle hub pages banao — feed me abhi koi item nahi.", "warn"); return; }
+          var xml = buildFeedXml();
+          if(navigator.clipboard && navigator.clipboard.writeText){
+            navigator.clipboard.writeText(xml).then(function(){ hubMsg("✓ Feed XML copy ho gaya — feed.xml naam ki file bana kar /hub/ folder me daal do.", "ok"); });
+          }
+        });
+
+        /* ----- hub live check + Tier-2 signals + Google push ----- */
+        function checkHubLive(item){
+          if(!item.hub){ log("Pehle is URL ka hub page banao.", "warn"); return Promise.resolve("no"); }
+          var hubUrl = item.hub.url;
+          log("Hub live check: " + hubUrl);
+          return fetchWithTimeout(hubUrl, 12000).then(function(r){
+            if(r.ok){ item.hub.live = "yes"; item.hub.liveNote = "HTTP " + r.status; log("Hub LIVE hai ✓ " + hubUrl + " (HTTP " + r.status + ") — ab Tier-2 signals aur Google push chala sakte ho.", "ok"); return "yes"; }
+            item.hub.live = "no"; item.hub.liveNote = "HTTP " + r.status;
+            log("Hub live NAHI hai — server ne HTTP " + r.status + " diya. File /hub/ folder me sahi naam se upload hui hai ya nahi, check karo: " + hubUrl, "bad");
+            return "no";
+          }).catch(function(){
+            // CORS rok sakta hai — no-cors jawab opaque hota hai: 404/500 bhi resolve ho jata hai,
+            // is liye ye sirf "pohch" hai, live ki tasdeeq NAHI. Live sirf readable 2xx par banta hai.
+            return fetch(hubUrl, { mode: "no-cors" }).then(function(){
+              item.hub.live = "reachable"; item.hub.liveNote = "server tak pohch hai, status parha nahi gaya (CORS) — live tasdeeq nahi";
+              log("Hub server tak pohch hai, lekin live tasdeeq NAHI hui — browser status parh nahi saka (CORS), aur 404 bhi bilkul isi tarah resolve ho jata hai. Hub URL browser me khol kar khud dekho ke page khul raha hai. Tier-2 signals aur Google push sirf readable 200 tasdeeq hone par chalenge: " + hubUrl, "warn");
+              return "reachable";
+            }).catch(function(){
+              item.hub.live = "no"; item.hub.liveNote = "pohch nahi hui";
+              log("Hub live NAHI lagta — " + hubUrl + " tak pohch nahi hui. Pehle hub file apni site ke /hub/ folder me upload karo, phir dobara check karo.", "bad");
+              return "no";
+            });
+          }).then(function(state){
+            renderQueue(); renderHubPanel();
+            return state;
+          });
+        }
+        function runHubSignals(item){
+          if(!item.hub) return Promise.resolve(false);
+          var hubHost = "";
+          try { hubHost = new URL(item.hub.url).hostname; } catch(e){ hubHost = item.host; }
+          var hubItem = { url: item.hub.url, host: hubHost };
+          log("Tier-2 signals hub URL par parallel ja rahe hain: " + item.hub.url, "ok");
+          var jobs = SIGNAL_FNS.map(function(pair){
+            return pair[1](hubItem).then(function(r){
+              item.hub.signals[pair[0]] = r.state;
+              if(r.state === "fail") log("Hub signal fail — " + sigName(pair[0]) + ": " + item.hub.url, "bad");
+              else log("Hub signal " + (r.state === "verified" ? "verified ✓" : "bheja gaya") + " — " + sigName(pair[0]) + ": " + item.hub.url, r.state === "verified" ? "ok" : "");
+              renderQueue();
+              return r;
+            });
+          });
+          // WebSub ko hub feed bhi publish karo — crawlers ko naye hub pages ki khabar
+          jobs.push(noCors("https://pubsubhubbub.appspot.com/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: "hub.mode=publish&hub.url=" + encodeURIComponent(hubBaseUrl() + "feed.xml") })
+            .then(function(r){ log("WebSub par hub RSS feed (feed.xml) bhi publish kar di gayi.", r.state === "fail" ? "warn" : "ok"); return r; }));
+          return Promise.all(jobs).then(function(){
+            item.hub.signalsSent = true;
+            log("Tier-2 hub signals mukammal: " + item.hub.url + " — archive.today hub copy, Archive.org, WebSub, Ping-o-matic, Twingly, Blo.gs sab bhej diye gaye.", "ok");
+            renderQueue(); renderHubPanel();
+            return true;
+          });
+        }
+        function hubHtml(item){
+          if(!item.hub || !item.hub.html) return "";
+          var h = item.hub;
+          var liveBadge = h.live === "yes" ? '<span class="badge b-hub-yes">Live ✓</span>' :
+            h.live === "no" ? '<span class="badge b-hub-no">Live nahi ✗</span>' :
+            h.live === "reachable" ? '<span class="badge b-hub-warn">Pohch hai — live tasdeeq nahi</span>' :
+            '<span class="badge b-hub-warn">Live check baqi</span>';
+          var sigBadge = h.signalsSent ? ' · Tier-2 signals hub par gaye ✓' : "";
+          return '<div class="hub-line">Hub page: <span class="badge b-hub-yes">Bana ✓</span> ' + esc(h.file) + " " + liveBadge + "<br />" +
+            "Hub URL: " + esc(h.url) + (h.liveNote ? " (" + esc(h.liveNote) + ")" : "") + "<br />" +
+            (h.fetched ? "Target ka asal title/description hub me laga hai." : "Target fetch nahi ho saka — hub me URL se bana title laga hai.") +
+            sigBadge +
+            "<br />Yaad rahe: file apni site ke <b>/hub/</b> folder me upload hogi tabhi ye hub live hoga aur push kaam karega.</div>";
+        }
+
+        /* ---------- render ---------- */
+        var BADGE = {
+          queued: ["b-queued", "Queue me hai"],
+          working: ["b-working", "Signals ja rahe hain…"],
+          pending: ["b-pending", "Pending"],
+          crawled: ["b-crawled", "Crawled — Google tasdeeq nahi"],
+          notindexed: ["b-notindexed", "Not indexed"],
+          fail: ["b-fail", "Fail"]
+        };
+        function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;"); }
+        function chips(item){
+          var out = "";
+          SIGS.forEach(function(s){
+            var st = item.signals[s[0]]; if(!st) return;
+            var cls = st === "verified" ? "c-ok" : st === "sent" ? "c-sent" : st === "fail" ? "c-fail" : "";
+            var sym = st === "verified" ? "✓ tasdeeq" : st === "sent" ? "→ gaya" : st === "fail" ? "✗ fail" : "– skip";
+            out += '<span class="chip ' + cls + '" title="' + s[1] + '">' + s[2] + " " + sym + "</span>";
+          });
+          return out ? '<div class="chips">' + out + "</div>" : "";
+        }
+        function renderStats(){
+          var total = urls.length;
+          $("stTotal").textContent = total;
+          $("stPending").textContent = urls.filter(function(x){ return x.status === "pending" || x.status === "working" || x.status === "queued"; }).length;
+          $("stCrawled").textContent = urls.filter(function(x){ return x.status === "crawled"; }).length;
+          $("stNot").textContent = urls.filter(function(x){ return x.status === "notindexed"; }).length;
+          $("stFail").textContent = urls.filter(function(x){ return x.status === "fail"; }).length;
+          var processed = urls.filter(function(x){ return x.submittedAt; });
+          if(!processed.length){
+            $("covLine").textContent = "Abhi koi URL submit nahi hua — submit ke baad yahan har signal ki coverage aur crawl evidence ka hisaab live banta jayega.";
+            $("sigTable").style.display = "none";
+          } else {
+            var crawled = processed.filter(function(x){ return x.status === "crawled"; }).length;
+            var pct = Math.round(crawled / processed.length * 100);
+            $("covLine").innerHTML = "Submit hue <b style='color:var(--ink)'>" + processed.length + "</b> URLs me se <b>" + crawled + " crawled (" + pct + "%)</b> — baqi ka status neeche queue me live hai. “Crawled” ka matlab archive evidence mila hai; Google index ki tasdeeq alag se hoti hai.";
+            var tb = $("sigBody"); tb.innerHTML = "";
+            SIGS.forEach(function(s){
+              var v = 0, sent = 0, f = 0, sk = 0;
+              processed.forEach(function(x){
+                var st = x.signals[s[0]];
+                if(st === "verified") v++; else if(st === "sent") sent++; else if(st === "fail") f++; else if(st === "skip") sk++;
+              });
+              if(!v && !sent && !f && !sk) return;
+              var tr = document.createElement("tr");
+              tr.innerHTML = "<td>" + s[1] + "</td><td>" + (v ? v + " tasdeeq · " : "") + (sent ? sent + " bheja gaya · " : "") + (f ? f + " fail · " : "") + (sk ? sk + " skip · " : "").replace(/ · $/, "") + "</td>";
+              tb.appendChild(tr);
+            });
+            $("sigTable").style.display = "";
+          }
+          renderWatch();
+          renderHubPanel();
+        }
+        function renderQueue(){
+          renderStats();
+          var total = urls.length;
+          $("emptyState").style.display = total ? "none" : "block";
+          $("queueTable").style.display = total ? "" : "none";
+          var tb = $("queueBody"); tb.innerHTML = "";
+          urls.forEach(function(item, i){
+            var tr = document.createElement("tr");
+            var b = BADGE[item.status] || BADGE.queued;
+            var gLink = "https://www.google.com/search?q=" + encodeURIComponent("site:" + item.url);
+            var bLink = "https://www.bing.com/search?q=" + encodeURIComponent("site:" + item.url);
+            var links = '<button type="button" data-check="' + i + '">Status check</button>' +
+              '<a href="' + gLink + '" target="_blank" rel="noopener">Google check</a><a href="' + bLink + '" target="_blank" rel="noopener">Bing check</a>' +
+              '<a href="https://web.archive.org/web/*/' + encodeURIComponent(item.url) + '" target="_blank" rel="noopener">Archive copy</a>' +
+              '<a href="https://archive.ph/newest/' + encodeURIComponent(item.url) + '" target="_blank" rel="noopener">archive.today copy</a>' +
+              '<button type="button" data-hubcreate="' + i + '" title="Is backlink ke liye hub page banao (asal title + description fetch karke)">Hub banao</button>' +
+              '<button type="button" data-hubdl="' + i + '" title="Hub page ki .html file download karo — apni site ke /hub/ folder me upload karni hai">Hub file ↓</button>' +
+              '<button type="button" data-hublive="' + i + '" title="Hub file live hai ya nahi check karo — live ho to Tier-2 signals hub URL par parallel jayenge">Hub live check + signals</button>';
+            links += '<button type="button" class="del" data-del="' + i + '" aria-label="Queue se hatao">✕</button>';
+            tr.innerHTML = '<td class="u">' + esc(item.url) + '<div class="host">' + esc(item.host) + "</div>" +
+              (item.mode ? '<span class="modechip">' + MODE_NAMES[item.mode] + "</span>" : "") + "</td>" +
+              '<td><span class="badge ' + b[0] + '">' + b[1] + "</span></td>" +
+              '<td class="detail">' + esc(item.detail) + chips(item) + hubHtml(item) + "</td>" +
+              '<td><div class="rowlinks">' + links + "</div></td>";
+            tb.appendChild(tr);
+          });
+          tb.querySelectorAll("[data-del]").forEach(function(btn){
+            btn.addEventListener("click", function(){
+              var idx = +btn.getAttribute("data-del");
+              delete seen[urls[idx].url]; urls.splice(idx, 1); renderQueue(); ensureWatch();
+            });
+          });
+          tb.querySelectorAll("[data-hubcreate]").forEach(function(btn){
+            btn.addEventListener("click", function(){
+              var it = urls[+btn.getAttribute("data-hubcreate")];
+              if(!it) return;
+              if(it.hub && it.hub.html){ log("Is URL ka hub page pehle se bana hai: " + it.hub.file + " — “Hub file ↓” se download karo.", "warn"); return; }
+              createHubPage(it, false);
+            });
+          });
+          tb.querySelectorAll("[data-hubdl]").forEach(function(btn){
+            btn.addEventListener("click", function(){
+              var it = urls[+btn.getAttribute("data-hubdl")];
+              if(!it) return;
+              if(!it.hub || !it.hub.html){ log("Pehle “Hub banao” dabao — hub file abhi bani nahi.", "warn"); createHubPage(it, false).then(function(h){ if(h) { download(h.file, h.html, "text/html"); log("Hub file download hui: " + h.file + " — apni site ke /hub/ folder me upload karo.", "ok"); } }); return; }
+              download(it.hub.file, it.hub.html, "text/html");
+              log("Hub file download hui: " + it.hub.file + " — apni site ke /hub/ folder me upload karo, phir “Hub live check” dabao.", "ok");
+            });
+          });
+          tb.querySelectorAll("[data-hublive]").forEach(function(btn){
+            btn.addEventListener("click", function(){
+              var it = urls[+btn.getAttribute("data-hublive")];
+              if(!it || checking) return;
+              if(!it.hub || !it.hub.html){ log("Pehle hub page banao aur file /hub/ folder me upload karo — phir live check hoga.", "warn"); return; }
+              checking = true;
+              checkHubLive(it).then(function(state){
+                checking = false;
+                if(state === "yes") return runHubSignals(it);
+                if(state === "reachable"){ log("Tier-2 signals nahi bheje — hub ki live tasdeeq nahi hui, sirf server tak pohch mili hai (wo 404 bhi ho sakta hai). Hub URL browser me khol kar dekho ke page asal me khul raha hai; signals sirf readable 200 tasdeeq par jayenge.", "warn"); return; }
+                log("Tier-2 signals nahi bheje — hub abhi live nahi. Pehle file upload karo, phir live check dobara dabao.", "warn");
+              }).then(function(){ checking = false; renderQueue(); });
+            });
+          });
+          tb.querySelectorAll("[data-check]").forEach(function(btn){
+            btn.addEventListener("click", function(){
+              var idx = +btn.getAttribute("data-check");
+              var it = urls[idx];
+              if(!it || checking) return;
+              if(it.status === "queued"){ log("Pehle is URL par signals bhejo, phir status check hoga.", "warn"); return; }
+              checking = true;
+              checkOne(it).then(function(){ checking = false; ensureWatch(); });
+            });
+          });
+        }
+
+        /* ---------- downloads (key file / payload / CSV) ---------- */
+        function download(name, content, type){
+          var blob = new Blob([content], { type: type || "text/plain" });
+          var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name;
+          document.body.appendChild(a); a.click();
+          setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 400);
+        }
+        $("keyFileBtn").addEventListener("click", function(){
+          var k = $("inKey").value.trim(), m = $("inMsg");
+          if(!k){ m.className = "parse-msg warn"; m.textContent = "Pehle IndexNow key likho — phir usi naam ki file banegi."; return; }
+          download(k + ".txt", k);
+          m.className = "parse-msg ok"; m.textContent = "✓ " + k + ".txt download ho gayi — isay apni site ke root (public_html) me upload karo.";
+          log("IndexNow key file download hui: " + k + ".txt");
+        });
+        $("payloadBtn").addEventListener("click", function(){
+          var m = $("inMsg");
+          var list = urls.map(function(x){ return x.url; });
+          if(!list.length){ m.className = "parse-msg warn"; m.textContent = "Pehle queue me apni site ke URLs add karo."; return; }
+          var k = $("inKey").value.trim();
+          if(!k){ m.className = "parse-msg warn"; m.textContent = "Pehle IndexNow key likho."; return; }
+          var host = ""; try { host = new URL(list[0]).hostname; } catch(e){}
+          var p = { host: host, key: k, keyLocation: "https://" + host + "/" + k + ".txt", urlList: list.slice(0, 10000) };
+          download("indexnow-payload.json", JSON.stringify(p, null, 2), "application/json");
+          m.className = "parse-msg ok"; m.textContent = "✓ Payload download ho gaya — isay https://api.indexnow.org/indexnow par POST kar sakte ho.";
+          log("IndexNow payload download hua (" + p.urlList.length + " URLs).");
+        });
+
+        /* ---------- queue actions ---------- */
+        $("copyBtn").addEventListener("click", function(){
+          if(!urls.length) return;
+          var text = urls.map(function(x){ return x.url; }).join("\n");
+          if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(function(){ log(urls.length + " URLs copy ho gaye."); }); }
+        });
+        $("csvBtn").addEventListener("click", function(){
+          if(!urls.length) return;
+          var head = ["url", "host", "mode", "status", "archive_org", "archive_today", "pingomatic", "websub", "twingly", "blogs", "indexnow", "hub_file", "hub_url", "hub_created", "hub_real_title_fetched", "hub_live", "hub_tier2_signals_sent", "detail", "submitted_at", "last_check", "checks", "signal_resends"];
+          var rows = [head];
+          urls.forEach(function(x){
+            rows.push([
+              x.url, x.host, x.mode ? MODE_NAMES[x.mode] : "",
+              (BADGE[x.status] || [])[1] || x.status,
+              x.signals.archive || "", x.signals.at || "", x.signals.ping || "", x.signals.websub || "",
+              x.signals.twingly || "", x.signals.blogs || "", x.signals.indexnow || "",
+              x.hub ? x.hub.file : "", x.hub ? x.hub.url : "", x.hub ? "yes" : "no",
+              x.hub ? (x.hub.fetched ? "yes" : "no") : "", x.hub ? x.hub.live : "",
+              x.hub ? (x.hub.signalsSent ? "yes" : "no") : "",
+              x.detail,
+              x.submittedAt ? new Date(x.submittedAt).toISOString() : "",
+              x.lastCheck ? new Date(x.lastCheck).toISOString() : "",
+              x.checks, x.resends
+            ]);
+          });
+          var csv = rows.map(function(r){ return r.map(function(c){ return '"' + String(c).replace(/"/g, '""') + '"'; }).join(","); }).join("\n");
+          download("indexing-coverage-report.csv", csv, "text/csv");
+          log("Coverage report CSV download hua (" + urls.length + " rows).", "ok");
+        });
+        $("clearBtn").addEventListener("click", function(){
+          if(running) return;
+          urls = []; seen = {};
+          if(watchTimer){ clearInterval(watchTimer); watchTimer = null; }
+          renderQueue();
+          $("parseMsg").textContent = ""; log("Queue clear kar di gayi.", "warn");
+        });
+
+        setSpeed("instant");
+        renderQueue();
+      })();
+    </script>
+  </body>
+</html>
